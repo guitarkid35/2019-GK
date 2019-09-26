@@ -101,7 +101,7 @@
 
   function init_pageloader() {
     var $pageloader = $("#pageloader");
-    setTimeout(function() { 
+    setTimeout(function() {
       $pageloader.addClass("uk-transition-fade");
       setTimeout(function() {
         $pageloader.addClass("page-is-loaded");
@@ -123,9 +123,13 @@
   }
 
   function init_check_hash_url() {
-    if (window.location.hash && window.location.hash !="" && $(window.location.hash).length) {
+    if (
+      window.location.hash &&
+      window.location.hash != "" &&
+      $(window.location.hash).length
+    ) {
       var speed = window.location.hash == "#home" ? 0 : 700;
-      console.log(window.location.hash)
+      console.log(window.location.hash);
       init_scroll_to($(window.location.hash), speed, 79);
     }
   }
@@ -146,7 +150,7 @@
     var $typed = $("#typed");
     if ($typed.length) {
       var typed = new Typed("#typed", {
-        strings: ["developer", "freelancer", "marketer", "photographer"],
+        strings: ["designer", "developer", "photographer"],
         loop: true,
         typeSpeed: 70
       });
@@ -156,7 +160,7 @@
   function init_contact_form() {
     var $el = $("#contact-form");
     var $alert_wrap = $("#contact-form-alert");
-     
+
     if ($el.length && $alert_wrap.length) {
       $el.on("submit", function() {
         var $btn = $("#btn-contact-form");
@@ -164,7 +168,6 @@
 
         init_btn_loading($btn, true);
 
-        
         $.post("src/php/sendmail.php", params, function(data) {
           var dt = JSON.parse(data);
           if (dt.status == "error") {
@@ -234,24 +237,24 @@
     return alert;
   }
 
-  function init_portfolio_details() { 
+  function init_portfolio_details() {
     $(".show-portfolio").on("click", function() {
       var $this = $(this);
       var $el = $("#show-portofolio-details");
       var $wrap = $("#portofolio-details");
-      $wrap.addClass('uk-animation-toggle');
+      $wrap.addClass("uk-animation-toggle");
       UIkit.modal($el).show();
 
       //show loading first
       $wrap.html(
         '<div class="uk-position-center  uk-text-center">' +
           "<div data-uk-spinner></div> " +
-        "</div>"
-      ); 
-      
+          "</div>"
+      );
+
       $.post($this.attr("href"), function(data) {
-        $wrap.html(data); 
-        $wrap.removeClass('uk-animation-toggle');
+        $wrap.html(data);
+        $wrap.removeClass("uk-animation-toggle");
       });
       return false;
     });
