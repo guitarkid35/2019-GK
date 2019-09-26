@@ -463,6 +463,9 @@ body {
   transition: 0.3s;
 }
 
+.yb-resume-item-subtitle {
+  color: #4dfccd;
+}
 .yb-resume-item:hover h4 {
   color: #1e87f0;
 }
@@ -1493,4 +1496,7 @@ body {
 
 .yb-dark-skin .uk-form-danger {
   border-color: #f0506e !important;
+}
+.yb-left-0 {
+  padding-left: 0 !important;
 }
