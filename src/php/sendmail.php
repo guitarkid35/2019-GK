@@ -1,7 +1,7 @@
 <?php
 
 //Change this to your email
-$to_myemail = 'guitarkid35@email.com';
+$to_myemail = 'garrick.chou@icloud.com';
 
 
 function my_set_error($json, $msg_desc, $field = null, $field_msg = null)
